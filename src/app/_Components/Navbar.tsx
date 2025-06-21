@@ -12,7 +12,6 @@ import {
 from "@/components/ui/sheet"
 import { Button } from '@/components/ui/button'
 import { ModeToggle } from '@/components/ui/mode-toggle'
-import Image from 'next/image'
 const Navbar = () => {
   return (
       <nav className='fixed top-0 left-1/2 -translate-x-1/2 z-50 
@@ -22,7 +21,7 @@ const Navbar = () => {
   text-black dark:text-white
   flex justify-between items-center px-6 sm:px-10 md:px-16 lg:px-24'>
 <Link href="/">
-FocusTube
+<h1 className='text-3xl italic'>FocusTube</h1>
 </Link>
 
 <div className='gap-1 md:gap-2 lg:gap-4 hidden md:flex'>
