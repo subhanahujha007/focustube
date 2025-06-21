@@ -93,7 +93,7 @@ About
 </Button>
 </Link>
 
-<Link href="https://github.com/subhanahujha007/">
+<Link href="https://github.com/subhanahujha007/focustube">
 <Button className='bg-orange-700 text-white items-center rounded-full w-fit hidden md:flex'
 size={"lg"}>
 Go to Repo 
