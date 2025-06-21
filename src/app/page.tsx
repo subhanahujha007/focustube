@@ -4,7 +4,7 @@ import { Video } from '../../types';
 import Image from 'next/image';
 export default function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
-  const [query, setQuery] = useState('react');
+  const [query, setQuery] = useState('');
 
   const fetchVideos = async () => {
     const res = await fetch(
@@ -29,7 +29,7 @@ export default function Home() {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="border p-2 w-[700px] rounded"
+        className="border p-2 w-[60%] rounded"
         placeholder="Enter topic (e.g., React Debouncing tutorial , Nodejs with automated tools)"
       />
       <button
@@ -41,11 +41,16 @@ export default function Home() {
       <br />
       <br />
 
-      <div className="grid grid-cols-3 gap-14 mt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 mt-4">
         {videos.map((video) => (
           <div
             key={video.id.videoId}
-           onClick={() => window.location.href = `/watch?v=${video.id.videoId}`}
+          onClick={() => {
+  const title = encodeURIComponent(video.snippet.title);
+  const videoId = video.id.videoId;
+  window.location.href = `/watch?v=${videoId}&q=${title}`;
+}}
+
             className="bg-gray-900 text-center gap-2 flex flex-col cursor-pointer rounded-md p-2"
           >
             <Image

@@ -4,21 +4,24 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Video } from '../../../types';
 import dynamic from 'next/dynamic';
+
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 import Image from 'next/image';
 
 export default function WatchPage() {
+      const [suggestedVideos, setSuggestedVideos] = useState<Video[]>([]);
   const searchParams = useSearchParams();
-  const videoId = searchParams.get('v');
-  const [suggestedVideos, setSuggestedVideos] = useState<Video[]>([]);
+const videoId = searchParams.get('v');
+const query = searchParams.get('q'); // ← get the query
 
-  const fetchSuggestions = async () => {
-    const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=react&type=video&maxResults=10&key=${process.env.NEXT_PUBLIC_YOUR_API_YOUTUBE}`
-    );
-    const data = await res.json();
-    setSuggestedVideos(data.items);
-  };
+const fetchSuggestions = async () => {
+  if (!query) return;
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=10&key=${process.env.NEXT_PUBLIC_YOUR_API_YOUTUBE}`
+  );
+  const data = await res.json();
+  setSuggestedVideos(data.items);
+};
 
   useEffect(() => {
     fetchSuggestions();
