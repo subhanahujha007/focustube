@@ -12,7 +12,7 @@ export default function WatchPage() {
       const [suggestedVideos, setSuggestedVideos] = useState<Video[]>([]);
   const searchParams = useSearchParams();
 const videoId = searchParams.get('v');
-const query = searchParams.get('q'); // ← get the query
+const query = searchParams.get('q'); 
 
 const fetchSuggestions = async () => {
   if (!query) return;
