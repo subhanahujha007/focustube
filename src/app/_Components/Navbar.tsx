@@ -22,13 +22,7 @@ const Navbar = () => {
   text-black dark:text-white
   flex justify-between items-center px-6 sm:px-10 md:px-16 lg:px-24'>
 <Link href="/">
-<Image
-src={"/"}
-alt='Logo'
-className='cursor-pointer w-40'
-height={100}
-width={170}
-/>
+FocusTube
 </Link>
 
 <div className='gap-1 md:gap-2 lg:gap-4 hidden md:flex'>
