@@ -31,7 +31,7 @@ Home
 </Button>
 </Link>
 
-<Link href="/Privacy-policy">
+<Link href="/privacy-policy">
 <Button variant={"ghost"} className='text-md font-semibold'>
 Privacy Policy
 </Button>
@@ -80,7 +80,7 @@ Privacy Policy
 </Button>
 </Link>
 
-<Link href="/About">
+<Link href="/about">
 <Button variant={"ghost"} className='text-md font-semibold'>
 About
 </Button>
