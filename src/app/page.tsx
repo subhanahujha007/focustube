@@ -8,7 +8,7 @@ export default function Home() {
 
   const fetchVideos = async () => {
     const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=50&key=${process.env.NEXT_PUBLIC_YOUR_API_YOUTUBE}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=50&videoDuration=medium&key=${process.env.NEXT_PUBLIC_YOUR_API_YOUTUBE}`
     );
     const data = await res.json();
     setVideos(data.items);
